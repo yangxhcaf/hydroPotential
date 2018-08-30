@@ -8,7 +8,7 @@ This projects entails assessing global hydropotential data using results derived
 
 [Still under development...]
 
-## Cred's
+## About
 
 Research Domain 3, Potsdam Institute for Climate Impact Research
 
