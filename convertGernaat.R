@@ -18,7 +18,7 @@ convertGernaat <- function(x, subtype){
   
   if(length(subtype) == 1 & all(subtype %in% sub)){
     
-    mapping <- read.csv2(paste0(getConfig()$mappingfolder, "/regional/regionMapping_Image3.csv"), stringsAsFactors = FALSE)
+    mapping <- read.csv2(paste0(getConfig()$mappingfolder, "/regional/regionmapping_Image3.csv"), stringsAsFactors = FALSE)
     irena <- readSource("IRENA", subtype = "Capacity", convert = TRUE)
     irena <- irena[mapping[which(mapping[,3] != "Extra"),2],2016,2]
     irena <- toolCountryFill(irena, fill = 0)
