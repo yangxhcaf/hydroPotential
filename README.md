@@ -17,7 +17,8 @@ Gernaat et al. 2017 can be cited as follows:
 ```
 @article{gernaat2017high,
   title={High-resolution assessment of global technical and economic hydropower potential},
-  author={Gernaat, David EHJ and Bogaart, Patrick W and van Vuuren, Detlef P and Biemans, Hester and Niessink, Robin},
+  author={Gernaat, David EHJ and Bogaart, Patrick W and van Vuuren, Detlef P and Biemans, 
+  Hester and Niessink, Robin},
   journal={Nature Energy},
   volume={2},
   number={10},
