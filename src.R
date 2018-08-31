@@ -28,7 +28,7 @@ genericDf <- genericDf[order(genericDf[,2]),]
 # plot
 
 png("./vis/comparisonChart.png", width = 1200, height = 750)
-op <- par(cex = 1, mgp= c(2.8,1,0), oma=c(1,1,1,1))
+op <- par(cex = 1, mgp= c(3,1,0), oma=c(1,1,1,1))
 plot(1:12, wgbuDf$Value, "o", ylim = c(0,300), col = "red", lwd = 2, axes = F, xlab = "", ylab = "")
 box()
 par(new = TRUE)
