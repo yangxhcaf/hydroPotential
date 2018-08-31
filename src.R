@@ -1,11 +1,8 @@
 ### visualization scripts ###
 
-# load dependencies
-
 library(moinput)
 
-# manipulate magpie objects with aggregationss
-# "KOS" removed from eu11 as no counterpart in weighted predictions
+# manipulate magpie objects with aggregationss, "KOS" removed from eu11 as no counterpart in weighted predictions
 
 eu11 <- read.csv2("EU11.csv", stringsAsFactors = FALSE)
 eu11 <- eu11[-which(eu11[,1] == "KOS"),]
@@ -43,8 +40,7 @@ dev.off()
 ### issues ###
 
 # can use generic for comparing technical and eocnomic potential differences, but not theoretical potentials
-# for theoretical potentials, one option could be to use the plos one shapefile data
-# another option would be to wait for the data provided by nature authors
+# for theoretical potentials, one option could be to use the plos one shapefile data, another option would be to wait for the data provided by nature authors
 # aggregate to remind regions
 # aggregate to europe eu11, important
 # bars on countries for easier difference visualization

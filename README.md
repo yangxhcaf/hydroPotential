@@ -8,6 +8,10 @@ This projects entails assessing global hydropotential data using results derived
 
 <img src = "/vis/comparisonChart.png" width = "800">
 
+## Notes
+
+For data protection purposes, the data provided by Gernaat et al. 2017 has not been published here. Rather, the results of comparisons will be shown here.
+
 ## Credits
 
 Research Domain 3, Potsdam Institute for Climate Impact Research
