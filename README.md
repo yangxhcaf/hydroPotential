@@ -6,7 +6,7 @@ This projects entails assessing global hydropotential data using results derived
 
 ## Visualizations
 
-<img src = "/vis/comparisonChart.png" width = "500">
+<img src = "/vis/comparisonChart.png" width = "800">
 
 ## Credits
 
