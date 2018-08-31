@@ -1,6 +1,5 @@
 .Rhistory
 input.csv
-EU11.csv
-EU5.csv
 EUmap.R
+EU5.csv
 historical_capacity.R
