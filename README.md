@@ -8,13 +8,13 @@ For data protection purposes, the data provided by Gernaat et al. 2017 has not b
 
 ## Visualizations
 
-1. Nominal and absolute deviation comparisons of WGBU vs. Gernaat et al. 2017:
+**1. Nominal and absolute deviation comparisons of WGBU vs. Gernaat et al. 2017:**
 
 <img src = "/vis/comparisonChart.png" width = "800">
 
-2. Differences visualized on EU11 map:
+**2. Hydropotential deviations visualized on EU11 map (under development):**
 
-<img src = "/vis/EU11.png" width = "800">
+<img src = "/vis/EU11.png" width = "600">
 
 ## Citation
 
@@ -33,7 +33,6 @@ Gernaat et al. 2017 can be cited as follows:
   publisher={Nature Publishing Group}
 }
 ```
->>>>>>> 7feb77d7307692d6ffdb85d59b28fde8d0b418e8
 
 ## Credits
 
