@@ -40,12 +40,12 @@ legend(0.9, 290, legend=c("WGBU", "Gernaat et al. 2017"),
 
 # next plot with percentage differences
 new <- sapply(1:nrow(wgbuDf), function(i) return(ifelse(min(wgbuDf[i,5], genericDf[i,5]) == 0, 100, (abs(wgbuDf[i,"Value"] - genericDf[i,"Value"])*100)/min(wgbuDf[i,"Value"], genericDf[i,"Value"]))))
-plot(1:12, new, "o", ylim = c(0,300), col = "black", lwd = 2, axes = F, xlab = "EU11", ylab = "Percentage Deviation (%)")
+plot(1:12, new, "o", ylim = c(0,300), col = "black", lwd = 2, axes = F, xlab = "EU11", ylab = "Absolute Percentage Deviation (%)")
 abline(100, 0, col = "red", lty = 2, lwd = 0.8)
 box()
 axis(side = 1, at = c(1:12), labels = genericDf$Region)
 axis(side = 2, at = seq(0,300,50))
-legend(0.9, 290, legend="Percentage Deviation",
+legend(0.9, 290, legend="Absolute Percentage\nDeviation\n",
        col="black", lty=1:1, lwd = 2, cex=1.1)
 
 # print
