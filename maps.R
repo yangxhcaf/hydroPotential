@@ -61,8 +61,11 @@ geom_polygon(data=map4, aes(long, lat, group = group),
         axis.ticks.x=element_blank(),
         axis.title.y=element_blank(),
         axis.text.y=element_blank(),
-        axis.ticks.y=element_blank()) +
-  scale_fill_manual(values = colors,name= "11 European regions")
+        axis.ticks.y=element_blank(),
+        legend.text=element_text(size=28),
+        legend.title=element_text(size=30),
+        legend.key.size=unit(3, "line")) +
+  scale_fill_manual(values = colors,name= "11 European\nregions")
 gg
 
 dev.off()
