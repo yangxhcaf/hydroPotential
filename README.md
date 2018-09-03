@@ -12,7 +12,7 @@ For data protection purposes, the data provided by Gernaat et al. 2017 has not b
 
 <img src = "/vis/comparisonChart.png" width = "800">
 
-**2. Hydropotential deviations visualized on EU11 map (under development):**
+**2. EU11 aggregation:**
 
 <img src = "/vis/EU11.png" width = "600">
 
