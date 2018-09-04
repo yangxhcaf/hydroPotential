@@ -16,7 +16,7 @@ For data protection purposes, the data provided by Gernaat et al. 2017 has not b
 
 <img src = "/vis/EU11.png" width = "800">
 
-**3. WGBU vs. Gernaat et al. 2017 Technical Hydropotential data aggregated on EU11:**
+**3. Technical Hydropotential data from WGBU vs. Gernaat et al. 2017 aggregated on EU11:**
 
 <img src = "/vis/EU11HydroPotential.png" width = "800">
 
