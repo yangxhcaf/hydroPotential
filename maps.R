@@ -138,20 +138,21 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
         axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank(),
-        legend.position = c(0.1,0.5),
+        legend.position = c(0.12,0.5),
         legend.background = element_rect(fill="transparent"),
-        legend.text=element_text(size=18),
-        legend.title=element_text(size=20),
+        legend.text=element_text(size=21),
+        legend.title=element_text(size=24),
         legend.key.size=unit(2, "line")) +
   scale_colour_manual(name="Legend", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols)
 gg
 
 dev.off()
 
-### extra code ###
+### issues ###
 
-# # basic plot method
-# 
-# png("./vis/EU11.png", height = 1000, width = 1000)
-# plot(spTransform(map3, CRS("+init=epsg:3857")), col = "khaki", bg = "azure2", lwd = 0.5)
-# dev.off()
+# can use generic for comparing technical and eocnomic potential differences, but not theoretical potentials
+# for theoretical potentials, one option could be to use the plos one shapefile data, another option would be to wait for the data provided by nature authors
+# aggregate to remind regions
+# aggregate to europe eu11, important
+# bars on countries for easier difference visualization
+# percentage of difference below

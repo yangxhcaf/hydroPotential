@@ -52,12 +52,3 @@ legend(0.9, 290, legend="Absolute Percentage\nDeviation\n",
 
 # print
 dev.off()
-
-### issues ###
-
-# can use generic for comparing technical and eocnomic potential differences, but not theoretical potentials
-# for theoretical potentials, one option could be to use the plos one shapefile data, another option would be to wait for the data provided by nature authors
-# aggregate to remind regions
-# aggregate to europe eu11, important
-# bars on countries for easier difference visualization
-# percentage of difference below
