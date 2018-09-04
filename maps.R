@@ -65,7 +65,9 @@ geom_polygon(data=map4, aes(long, lat, group = group),
         axis.ticks.y=element_blank(),
         legend.text=element_text(size=28),
         legend.title=element_text(size=30),
-        legend.key.size=unit(2, "line")) +
+        legend.key.size=unit(2, "line"),
+        legend.position = c(0.12,0.4),
+        legend.background = element_rect(fill="transparent")) +
   scale_fill_manual(values = colors,name= "11 European\nregions")
 gg
 
@@ -141,7 +143,7 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
         legend.text=element_text(size=18),
         legend.title=element_text(size=20),
         legend.key.size=unit(2, "line")) +
-  scale_colour_manual(name="", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols)
+  scale_colour_manual(name="Legend", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols)
 gg
 
 dev.off()
