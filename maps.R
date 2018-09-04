@@ -85,7 +85,6 @@ map$SOV_A3[which(map$ADMIN == "Isle of Man")] <- "IMN"
 map$SOV_A3[which(map$ADMIN == "Jersey")] <- "JEY"
 map$SOV_A3[which(map$ADMIN == "Greenland")] <- "GRL"
 
-
 colors <- c("EUB" =brewer.pal(9,"YlOrRd")[6],"FRA"=brewer.pal(9,"YlOrRd")[7],                 
             "EUI"=brewer.pal(9,"YlOrRd")[1],"EUL"=brewer.pal(9,"YlOrRd")[3],"EUS"=brewer.pal(9,"YlOrRd")[2],  
             "EUN"=brewer.pal(9,"BuPu")[5],                                  
@@ -111,9 +110,9 @@ map4 <- fortify(spTransform(map4, CRS("+init=epsg:3857")), region = "SOV_A3")
 png("./vis/EU11.png", height = 1000, width = 1500)
 
 gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group, fill = id),
-                       color = "black", size = 0.1) +
-geom_polygon(data=map4, aes(long, lat, group = group),
-                        color = "black", fill = "white", size = 0.1) +
+                              color = "black", size = 0.1) +
+  geom_polygon(data=map4, aes(long, lat, group = group),
+               color = "black", fill = "white", size = 0.1) +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
@@ -171,9 +170,9 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
   geom_polygon(data=map4, aes(long, lat, group = group),
                color = "black", fill = "white", size = 0.1) +
   geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long, ymin = lat,
-  ymax = ifelse(WGBU!=0, lat+(5000*WGBU), lat+0.5*5000*Gernaat), colour = "WGBU")) +
+                                                                     ymax = ifelse(WGBU!=0, lat+(5000*WGBU), lat+0.5*5000*Gernaat), colour = "WGBU")) +
   geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long+120000/1.2, ymin = lat, 
-  ymax = lat+(5000*Gernaat), colour = "Gernaat et al. 2017")) +
+                                                                     ymax = lat+(5000*Gernaat), colour = "Gernaat et al. 2017")) +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
