@@ -12,9 +12,13 @@ For data protection purposes, the data provided by Gernaat et al. 2017 has not b
 
 <img src = "/vis/comparisonChart.png" width = "800">
 
-**2. EU11 aggregation (EPSG:3857):**
+**2. EU11 aggregation:**
 
-<img src = "/vis/EU11.png" width = "800">
+<img src = "/vis/EU11.png" width = "600">
+
+**3. Deviations in WGBU vs. Gernaat et al. 2017 Hydropotential data in EU11:**
+
+<img src = "/vis/EU11Hydropotential.png" width = "600">
 
 ## Citation
 

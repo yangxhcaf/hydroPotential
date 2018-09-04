@@ -4,6 +4,7 @@ library(rgeos)
 library(ggplot2)
 library(grid)
 library(RColorBrewer)
+library(moinput)
 
 # download file if necessary
 
@@ -48,7 +49,7 @@ map3 <- fortify(spTransform(map3, CRS("+init=epsg:3857")), region = "SOV_A3")
 map3[,6] <- do.call("c", lapply(1:length(map3[,6]), function(i) return(unique(iso3[which(iso3[,1] == map3[i,6]),2]))))
 map4 <- fortify(spTransform(map4, CRS("+init=epsg:3857")), region = "SOV_A3")
 
-# ggplot2 method with more functionalities
+# ggplot2 with eu11 map
 
 png("./vis/EU11.png", height = 1000, width = 1500)
 
@@ -64,8 +65,83 @@ geom_polygon(data=map4, aes(long, lat, group = group),
         axis.ticks.y=element_blank(),
         legend.text=element_text(size=28),
         legend.title=element_text(size=30),
-        legend.key.size=unit(3, "line")) +
+        legend.key.size=unit(2, "line")) +
   scale_fill_manual(values = colors,name= "11 European\nregions")
+gg
+
+dev.off()
+
+# ggplot2 with hydropotential visualizations
+
+mapH <- data.frame(matrix(ncol = 5, nrow = 0))
+names(mapH) <- c("long", "lat", "region", "WGBU", "Gernaat")
+mapH <- map3[order(map3[,6]),][,c(1,2,6)]
+mapAgg <- aggregate(mapH[,c(1,2)], list(mapH$id), mean)
+
+eu11 <- read.csv2("EU11.csv", stringsAsFactors = FALSE)
+eu11 <- eu11[-which(eu11[,1] == "KOS"),]
+generic <- readSource("Gernaat", "Tech.Full")
+generic <- generic[eu11[,1],,]
+genericAgg <- toolAggregate(generic, eu11)
+
+wgbu <- readSource("WGBU", convert = TRUE)
+wgbu <- wgbu[eu11[,1],,2]
+wgbuAgg <- toolAggregate(wgbu, eu11)
+
+# convert to df
+
+wgbuDf <- as.data.frame(wgbuAgg)
+wgbuDf <- wgbuDf[order(wgbuDf[,2]),]
+
+genericDf <- as.data.frame(genericAgg)
+genericDf <- genericDf[order(genericDf[,2]),]
+
+mapAgg$WGBU <- wgbuDf$Value
+mapAgg$Gernaat <- genericDf$Value
+
+mapAgg[12,2] <- -208456.2
+mapAgg[12,3] <- 6810689
+mapAgg[11,2] <- 892606.0 
+mapAgg[11,3] <- 8342088
+mapAgg[10,2] <- 3855244.9
+mapAgg[10,3] <- 4586744
+mapAgg[8,3] <- 2605244.9
+mapAgg[8,3] <- 5586744 
+mapAgg[7,2] <- 2103849.2
+mapAgg[7,3] <- 6646070
+mapAgg[6,2] <- 1608276.0
+mapAgg[6,3] <- 8342088
+mapAgg[5,2] <- 1302320.4
+mapAgg[4,2] <- -400060.1
+mapAgg[3,2] <- 511829.5
+mapAgg[2,2] <- 1125500.3
+mapAgg[2,3] <- 6646070
+mapAgg[1,2] <- 893086.0
+mapAgg[1,3] <- 5827015
+
+png("./vis/EU11HydroPotential.png", height = 1000, width = 1500)
+cols <- c("WGBU"="red","Gernaat et al. 2017"="blue")
+
+gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
+                              color = "black", fill = "khaki", size = 0.1) +
+  geom_polygon(data=map4, aes(long, lat, group = group),
+               color = "black", fill = "white", size = 0.1) +
+  geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long, ymin = lat,
+  ymax = lat+(2500*WGBU)+100000, colour = "WGBU")) +
+  geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long+120000/1.2, ymin = lat, 
+  ymax = lat+(2500*Gernaat)+100000, colour = "Gernaat et al. 2017")) +
+  theme(axis.title.x=element_blank(),
+        axis.text.x=element_blank(),
+        axis.ticks.x=element_blank(),
+        axis.title.y=element_blank(),
+        axis.text.y=element_blank(),
+        axis.ticks.y=element_blank(),
+        legend.position = c(0.1,0.5),
+        legend.background = element_rect(fill="transparent"),
+        legend.text=element_text(size=18),
+        legend.title=element_text(size=20),
+        legend.key.size=unit(2, "line")) +
+  scale_colour_manual(name="", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols)
 gg
 
 dev.off()
