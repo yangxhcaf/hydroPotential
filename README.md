@@ -8,7 +8,7 @@ For data protection purposes, the data provided by Gernaat et al. 2017 has not b
 
 ## Visualizations
 
-**1. Nominal and absolute percentage deviation comparisons for Technical Hydropotential data from WGBU vs. Gernaat et al. 2017:**
+**1. Raw values and absolute percentage deviation comparisons for Technical Hydropotential data from WGBU vs. Gernaat et al. 2017:**
 
 <img src = "/vis/comparisonChart.png" width = "800">
 
