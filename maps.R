@@ -64,9 +64,9 @@ geom_polygon(data=map4, aes(long, lat, group = group),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank(),
         legend.text=element_text(size=28),
-        legend.title=element_text(size=30),
+        legend.title=element_text(size=30, face = "bold"),
         legend.key.size=unit(2, "line"),
-        legend.position = c(0.105,0.4),
+        legend.position = c(0.1,0.4),
         legend.background = element_rect(fill="transparent")) +
   scale_fill_manual(values = colors,name= "EU11")
 gg
@@ -106,11 +106,11 @@ mapAgg[12,3] <- 6810689
 mapAgg[11,2] <- 892606.0 
 mapAgg[11,3] <- 8342088
 mapAgg[10,2] <- 3855244.9
-mapAgg[10,3] <- 4586744
+mapAgg[10,3] <- 4606744
 mapAgg[8,3] <- 2605244.9
-mapAgg[8,3] <- 5586744 
+mapAgg[8,3] <- 5656744 
 mapAgg[7,2] <- 2103849.2
-mapAgg[7,3] <- 6646070
+mapAgg[7,3] <- 6686070
 mapAgg[6,2] <- 1608276.0
 mapAgg[6,3] <- 8342088
 mapAgg[5,2] <- 1302320.4
@@ -120,6 +120,7 @@ mapAgg[2,2] <- 1125500.3
 mapAgg[2,3] <- 6646070
 mapAgg[1,2] <- 893086.0
 mapAgg[1,3] <- 5827015
+mapAgg[,3] <- mapAgg[,3] + 50000
 
 png("./vis/EU11HydroPotential.png", height = 1000, width = 1500)
 cols <- c("WGBU"="red","Gernaat et al. 2017"="blue")
@@ -129,9 +130,9 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
   geom_polygon(data=map4, aes(long, lat, group = group),
                color = "black", fill = "white", size = 0.1) +
   geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long, ymin = lat,
-  ymax = lat+(2500*WGBU)+100000, colour = "WGBU")) +
+  ymax = ifelse(WGBU!=0, lat+(5000*WGBU), lat+0.5*5000*Gernaat), colour = "WGBU")) +
   geom_errorbar(data = mapAgg, size = 6, alpha = 0.9, width = 0, aes(x = long+120000/1.2, ymin = lat, 
-  ymax = lat+(2500*Gernaat)+100000, colour = "Gernaat et al. 2017")) +
+  ymax = lat+(5000*Gernaat), colour = "Gernaat et al. 2017")) +
   theme(axis.title.x=element_blank(),
         axis.text.x=element_blank(),
         axis.ticks.x=element_blank(),
@@ -141,14 +142,16 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
         legend.position = c(0.135,0.5),
         legend.background = element_rect(fill="transparent"),
         legend.text=element_text(size=21),
-        legend.title=element_text(size=24),
+        legend.title=element_text(size=24, face="bold"),
         legend.key.size=unit(2, "line")) +
-  scale_colour_manual(name="Legend", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols)
+  scale_colour_manual(name="Legend", breaks = c("WGBU", "Gernaat et al. 2017"), values=cols) +
+  geom_text(data = mapAgg, aes(x=long+55000, y=lat-120000, label = Group.1), size = 6)
+
 gg
 
 dev.off()
 
-# fix scaling issue for cases wher  e wgbu = 0
+# fix scaling issue for cases where wgbu = 0
 # put regional name below bar plot
 
 ### issues ###
