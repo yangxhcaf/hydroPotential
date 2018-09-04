@@ -66,9 +66,9 @@ geom_polygon(data=map4, aes(long, lat, group = group),
         legend.text=element_text(size=28),
         legend.title=element_text(size=30),
         legend.key.size=unit(2, "line"),
-        legend.position = c(0.12,0.4),
+        legend.position = c(0.105,0.4),
         legend.background = element_rect(fill="transparent")) +
-  scale_fill_manual(values = colors,name= "11 European\nregions")
+  scale_fill_manual(values = colors,name= "EU11")
 gg
 
 dev.off()
@@ -138,7 +138,7 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
         axis.title.y=element_blank(),
         axis.text.y=element_blank(),
         axis.ticks.y=element_blank(),
-        legend.position = c(0.13,0.5),
+        legend.position = c(0.135,0.5),
         legend.background = element_rect(fill="transparent"),
         legend.text=element_text(size=21),
         legend.title=element_text(size=24),
@@ -147,6 +147,9 @@ gg <- ggplot() + geom_polygon(data=map3, aes(long, lat, group = group),
 gg
 
 dev.off()
+
+# fix scaling issue for cases wher  e wgbu = 0
+# put regional name below bar plot
 
 ### issues ###
 
